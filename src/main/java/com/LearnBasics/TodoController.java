@@ -34,11 +34,10 @@ public class TodoController {
         }
     }
 
-    //GetAlTodo
-    @GetMapping("")
-    ResponseEntity <List<Todo>> getAllTodo()
-    {
-        return new ResponseEntity<List<Todo>>(service.getAllTodo() , HttpStatus.OK);
+    //GetAllTodo
+    @GetMapping
+    public List<Todo> getAllTodo() {
+        return service.getAllTodo();
     }
 
     //UpdateTodo
@@ -54,4 +53,5 @@ public class TodoController {
     {
         service.deleteTodoById(id);
     }
+
 }

@@ -4,16 +4,21 @@ package com.LearnBasics.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
 
 @Entity
 public class Todo{
     @Id
     @GeneratedValue
     private Integer id;
+    @NotNull
     private String title;
+    @NotNull
     private String description;
     private Boolean completed;
+    @Email
+    private String email;
 
     public Integer getId() {
         return id;
@@ -45,5 +50,13 @@ public class Todo{
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
